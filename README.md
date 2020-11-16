@@ -1,4 +1,4 @@
-# cooperative-scheduler-renode
+# Cooperative-Scheduler-Renode
 This project is developed to be a cooperative scheduler for embedded systems and the code must be developed using Keil uVison IDE and run on the STM32F4_discovery kit simulated using Renode. 
 
 ## Steps for building and running the project:							<br/>	(given that you already have Keil uVison IDE and Renode installed on your computer)<br/>
@@ -10,7 +10,7 @@ This project is developed to be a cooperative scheduler for embedded systems and
 3. The output should be as :<br/>
 ![OutputImage](https://github.com/ahmed-emad1/cooperative-scheduler-renode/blob/main/app1.png)
 
-4- To Run the other applications: You Should follow the same steps in order to run the other application but using the other main.c files that exist in each application's folder. 
+4- To Run the other applications: You Should follow the same steps but using the other main.c files that exist in each application's folder. 
 
 ## Project Description & Implementation:			
 1. All ready to run tasks (functions) are stored in the ready queue. 
