@@ -5,7 +5,7 @@ This project is developed to be a cooperative scheduler for embedded systems and
 
 1- Download the “main.c” file <br/>
 2-  Follow the instructions in the “Renode Example Guide.pdf” file in the repo to create a new project, add packs for the STM32F4 microcontroller, and run the code on renode.  <br/>
-3- The output should be as "app1.png" <br/>
+3- The output should be as :<br/>
 ![OutputImage](https://github.com/ahmed-emad1/cooperative-scheduler-renode/blob/main/app1.png)
 
 
