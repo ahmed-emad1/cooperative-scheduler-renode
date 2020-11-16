@@ -4,9 +4,9 @@
 #define SIZE 20
 static uint8_t msg[] = "Ready Queue is full !!\n";
 static uint8_t empty_msg[] = "Ready Queue is empty !!\n";
-static uint8_t taskA_msg[] = "taskA Alive !!A!A!A!A!AA!A!A!A!AA!A!A!A!A!\n";
-static uint8_t taskB_msg[] = "taskB Alive !!B!B!B!B!B!BB!B!B!B!B!B\n";
-static uint8_t taskC_msg[] = "taskC Alive !!C!C!CC!C!C!C!CC!C!C!C!C!C!C\n";
+static uint8_t taskA_msg[] = "TaskA is running\n";
+static uint8_t taskB_msg[] = "TaskB is running\n";
+static uint8_t taskC_msg[] = "TaskC is running\n";
 static uint8_t pressedMsg[] = "Button is pressed !!\n";
 static uint8_t releasedMsg[] = "Button is released !!\n";
 static uint8_t counter []="tick ";
@@ -46,6 +46,7 @@ void delayMs(int n);
 void ReRunMe(int n,void (var)(void));
 void decrement(void);
 int intToAscii(int number);
+void init(void);
 void SysTick_Handler(void)  {
 	timerFlag = 1;
 }
@@ -171,7 +172,7 @@ void deQueue_readyQ() {
 
 void enQueue_delayQ(struct Task value) {
     if (rear_delayQ == SIZE - 1)
-        printf("\nQueue is Empty!!");
+		{}//queue is empty
   else {
       
     if (front_delayQ == -1)
@@ -183,7 +184,7 @@ void enQueue_delayQ(struct Task value) {
 
 void deQueue_delayQ() {
   if (front_delayQ == -1)
-    printf("\nQueue is Empty!!");
+	{}//queue is empty
   else {
 		front_delayQ++;
     if (front_delayQ > rear_delayQ)
@@ -230,14 +231,12 @@ void taskA ()
 				
 						sendUART(taskA_msg, sizeof(taskA_msg));
 						ReRunMe(2,taskA);
-				
 }
 
 void taskB ()
 {
 			
 						sendUART(taskB_msg, sizeof(taskB_msg));
-						//ReRunMe(0,taskB);
 					 
 				
 }
@@ -245,7 +244,7 @@ void taskC ()
 {
 			
 						sendUART(taskC_msg, sizeof(taskC_msg));
-					//	ReRunMe(0,taskB);
+					  
 					 
 				
 }
@@ -285,7 +284,7 @@ void ReRunMe(int n,void (var)(void)){
 }
 void decrement(){
 	 if (front_delayQ == -1)
-    printf("\nQueue is Empty!!");
+	 {}
 	 else{
 		
 		for(int i = 0;i<SIZE;++i)
@@ -301,12 +300,11 @@ void decrement(){
 int intToAscii(int number) {
    return '0' + number;
 }
-int main()
-{	 
-	  /* startup code initialization */
+void init(){
+	/* startup code initialization */
 	  SystemInit();
     SystemCoreClockUpdate();
-	  /* intialize UART */
+	  /* intialize GPIO */
 	  gpioInit();
 		/* intialize UART */
 	  uartInit();
@@ -321,14 +319,18 @@ int main()
 		EXTI->FTSR |= 0x0001;
 	  /* enable interrupt controller for External interrupt 0 */
 		NVIC_EnableIRQ(EXTI0_IRQn);
-		 
-	
+}
+int main()
+{	 
+	  
+		init(); 
+		
 		QueTask(taskA);
 		QueTask(taskB);
 		QueTask(taskC);
 		
-		int count =1;
-	  while(count<SIZE-1)
+		int count =0;
+	  while(count<SIZE)
 		{
 
 			if(timerFlag && !stopFlag)
