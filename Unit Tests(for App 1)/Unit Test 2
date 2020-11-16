@@ -1,4 +1,4 @@
-Uni test2: for changing priorities therefore testing the priority sorting and ready queue functionalities :
+Unit test2: for changing priorities therefore testing the priority sorting and ready queue functionalities :
 QueTask(taskA);
 QueTask(taskB);
 QueTask(taskC); 
