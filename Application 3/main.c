@@ -299,12 +299,11 @@ void decrement(){
 int intToAscii(int number) {
    return '0' + number;
 }
-int main()
-{	 
-	  /* startup code initialization */
+void init(){
+	/* startup code initialization */
 	  SystemInit();
     SystemCoreClockUpdate();
-	  /* intialize UART */
+	  /* intialize GPIO */
 	  gpioInit();
 		/* intialize UART */
 	  uartInit();
@@ -319,6 +318,10 @@ int main()
 		EXTI->FTSR |= 0x0001;
 	  /* enable interrupt controller for External interrupt 0 */
 		NVIC_EnableIRQ(EXTI0_IRQn);
+}
+int main()
+{	 
+	init();
 		 
 	
 		QueTask(taskA);
