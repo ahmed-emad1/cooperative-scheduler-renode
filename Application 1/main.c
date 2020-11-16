@@ -46,6 +46,7 @@ void delayMs(int n);
 void ReRunMe(int n,void (var)(void));
 void decrement(void);
 int intToAscii(int number);
+void init(void);
 void SysTick_Handler(void)  {
 	timerFlag = 1;
 }
@@ -229,15 +230,13 @@ void taskA ()
 {
 				
 						sendUART(taskA_msg, sizeof(taskA_msg));
-						ReRunMe(2,taskA); //for unit tests 1 ,we replaced Rerun(0,taskA)
-				
+						ReRunMe(2,taskA);
 }
 
 void taskB ()
 {
 			
 						sendUART(taskB_msg, sizeof(taskB_msg));
-						
 					 
 				
 }
@@ -301,12 +300,11 @@ void decrement(){
 int intToAscii(int number) {
    return '0' + number;
 }
-int main()
-{	 
-	  /* startup code initialization */
+void init(){
+	/* startup code initialization */
 	  SystemInit();
     SystemCoreClockUpdate();
-	  /* intialize UART */
+	  /* intialize GPIO */
 	  gpioInit();
 		/* intialize UART */
 	  uartInit();
@@ -321,8 +319,12 @@ int main()
 		EXTI->FTSR |= 0x0001;
 	  /* enable interrupt controller for External interrupt 0 */
 		NVIC_EnableIRQ(EXTI0_IRQn);
-		 
-	
+}
+int main()
+{	 
+	  
+		init(); 
+		
 		QueTask(taskA);
 		QueTask(taskB);
 		QueTask(taskC);
