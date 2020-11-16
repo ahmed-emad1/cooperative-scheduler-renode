@@ -46,6 +46,7 @@ void delayMs(int n);
 void ReRunMe(int n,void (var)(void));
 void decrement(void);
 int intToAscii(int number);
+void init(void);
 void SysTick_Handler(void)  {
 	timerFlag = 1;
 }
