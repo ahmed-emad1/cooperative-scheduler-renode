@@ -229,7 +229,7 @@ void taskA ()
 {
 				
 						sendUART(taskA_msg, sizeof(taskA_msg));
-						//ReRunMe(2,taskA);
+						ReRunMe(2,taskA);
 				
 }
 
