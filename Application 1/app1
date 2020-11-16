@@ -1,12 +1,12 @@
 
 
-Application1: <br/>
-Task A -> Priority 4 TaskB ->Priority 6 TaskC -> Priority 8, Task A has RerunMe(2) <br/>
-Main: <br/>
-QueTask(taskA);<br/>
-QueTask(taskB);<br/>
-QueTask(taskC); <br/>
+Application1: 
+Task A -> Priority 4 TaskB ->Priority 6 TaskC -> Priority 8, Task A has RerunMe(2) 
+Main: 
+QueTask(taskA);
+QueTask(taskB);
+QueTask(taskC); 
 
-Output:<br/>
-Size of ready queue is 20 therefore we are demonstrating the output for 20 ticks<br/>
+Output:
+Size of ready queue is 20 therefore we are demonstrating the output for 20 ticks
 Since TaskC has the highest priority, it was executed first. Following it was TaskB since it had the second highest priority. And finally TaskA with the least priority and kept on Rerunning since every 2 ticks, since it has the function ReRunMe(2).
