@@ -1,0 +1,12 @@
+ Task A -> Priority 1 TaskB ->Priority 2 TaskC -> Priority 3
+Main: 
+QueTask(taskA);
+QueTask(taskB);
+QueTask(taskC); 
+QueTask(taskA);
+QueTask(taskB);
+QueTask(taskC); 
+
+
+Output:
+Since taskC has the highest priority all taskC instances are is executed first. Following all taskB instances then taskA instances. 
