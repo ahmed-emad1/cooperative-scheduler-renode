@@ -46,6 +46,7 @@ void delayMs(int n);
 void ReRunMe(int n,void (var)(void));
 void decrement(void);
 int intToAscii(int number);
+void init(void);
 void SysTick_Handler(void)  {
 	timerFlag = 1;
 }
@@ -301,12 +302,11 @@ void decrement(){
 int intToAscii(int number) {
    return '0' + number;
 }
-int main()
-{	 
-	  /* startup code initialization */
+void init(){
+	/* startup code initialization */
 	  SystemInit();
     SystemCoreClockUpdate();
-	  /* intialize UART */
+	  /* intialize GPIO */
 	  gpioInit();
 		/* intialize UART */
 	  uartInit();
@@ -321,7 +321,11 @@ int main()
 		EXTI->FTSR |= 0x0001;
 	  /* enable interrupt controller for External interrupt 0 */
 		NVIC_EnableIRQ(EXTI0_IRQn);
-		 
+}
+int main()
+{	 
+	  
+		init(); 
 	
 		QueTask(taskA);
 		QueTask(taskB);
