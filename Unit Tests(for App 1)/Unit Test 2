@@ -1,0 +1,5 @@
+Uni test2: for changing priorities therefore testing the priority sorting and ready queue functionalities :
+QueTask(taskA);
+QueTask(taskB);
+QueTask(taskC); 
+ Task A -> Priority 6 TaskB ->Priority 5 TaskC -> Priority 3, Task A has RerunMe(2) 
