@@ -1,0 +1,12 @@
+ Task A -> Priority 6 TaskB ->Priority 5 TaskC -> Priority 3, Task A has ReRunMe(3) and  TaskB has ReRunMe(1) 
+Main:
+QueTask(taskA);
+QueTask(taskB);
+QueTask(taskC); 
+
+
+Output:
+Size of ready queue is 20 therefore we are demonstrating the output for 20 ticks
+Since TaskA has the highest priority, it was executed first. Following it was TaskB since it had the second highest priority. Finally TaskC with the least priority.
+TaskA has ReRunMe(3) so it is put in the delay queue for 3 clock ticks and Task(B) has ReRunMe (1) so it is put in the delay queue for 1 clock tick. 
+Since TaskB is dequeued from the delay queue and enqueued in the ready queue before TaskA it is executed before it. 
