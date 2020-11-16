@@ -8,6 +8,10 @@ This project is developed to be a cooperative scheduler for embedded systems and
 3- The output should be as :<br/>
 ![OutputImage](https://github.com/ahmed-emad1/cooperative-scheduler-renode/blob/main/app1.png)
 
+4- To Run the other applications: You Should follow the same steps in order to run the other application but using the other main.c files that exist in each application's folder. 
+
+## Project Description & Implementation:			
+
 
 
  
